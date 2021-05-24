@@ -39,7 +39,8 @@ export const resolve = (node: ContentfulEntry): string | undefined => {
  * @param node
  */
 export const resolveLinkInfo = (node: ContentfulEntry): LinkData => {
-  if (node && node.fields.path) return;
+  if (!node.fields) return;
+  if (node && node.fields && node.fields.path) return;
 
   let internalLinkNode;
 

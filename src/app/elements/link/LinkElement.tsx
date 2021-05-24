@@ -9,6 +9,7 @@ export interface LinkElementProps
     React.HTMLAttributes<HTMLElement> {}
 
 const LinkElement = (props: LinkElementProps) => {
+  if (!props) return null;
   const generalProps = {
     onClick: props.onClick && ((e) => props.onClick(e)),
     className: makeClass(['link', props.className]),

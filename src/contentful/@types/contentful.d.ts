@@ -48,6 +48,34 @@ export interface IArticle extends Entry<IArticleFields> {
   };
 }
 
+export interface IFaqFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Text Items */
+  textItems?: IRichText[] | undefined;
+
+  /** Slug */
+  slug: string;
+}
+
+export interface IFaq extends Entry<IFaqFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'faq';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
 export interface IFooterFields {
   /** Content name */
   name: string;
@@ -74,31 +102,6 @@ export interface IFooter extends Entry<IFooterFields> {
     contentType: {
       sys: {
         id: 'footer';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
-export interface IFormFields {
-  /** Title */
-  title?: string | undefined;
-
-  /** Description */
-  description?: Document | undefined;
-}
-
-export interface IForm extends Entry<IFormFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'form';
         linkType: 'ContentType';
         type: 'Link';
       };
@@ -145,12 +148,51 @@ export interface IHeader extends Entry<IHeaderFields> {
   };
 }
 
+export interface IHeroFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Description */
+  description?: Document | undefined;
+
+  /** CTA */
+  cta?: Entry<{ [fieldId: string]: unknown }> | undefined;
+
+  /** Image */
+  image?: Asset | undefined;
+
+  /** Slug */
+  slug: string;
+}
+
+/** Hero elements with Title, description, CTA, image */
+
+export interface IHero extends Entry<IHeroFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'hero';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
 export interface IImageFields {
   /** Content name */
   name: string;
 
-  /** image */
+  /** Image */
   image: Asset;
+
+  /** Text Block */
+  textBlock?: Document | undefined;
 }
 
 /** A content wrapper for Images */
@@ -272,12 +314,47 @@ export interface IMetaData extends Entry<IMetaDataFields> {
   };
 }
 
+export interface INumberedListFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Entries Text */
+  entriesText?: IRichText[] | undefined;
+
+  /** Entries Icons */
+  entriesIcons?: IImage[] | undefined;
+
+  /** Slug */
+  slug: string;
+}
+
+/** A sequential series of title, description, icon */
+
+export interface INumberedList extends Entry<INumberedListFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'numberedList';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
 export interface IPageFields {
   /** Page name */
   title: string;
 
   /** Content */
-  content?: (IForm | IImage | IList | IRichText | IVideo)[] | undefined;
+  content?:
+    | (IFaq | IHero | IImage | IList | INumberedList | IRichText | IVideo)[]
+    | undefined;
 
   /** Parent page */
   parentPage?: IArticle | IPage | undefined;
@@ -320,6 +397,9 @@ export interface IRichTextFields {
 
   /** Content */
   content?: Document | undefined;
+
+  /** Title */
+  title?: string | undefined;
 }
 
 /** A Rich text component with Markdown Editor */
@@ -341,63 +421,19 @@ export interface IRichText extends Entry<IRichTextFields> {
   };
 }
 
-export interface IVideoFields {
-  /** Video title */
-  title: string;
-
-  /** Video asset */
-  video?: Asset | undefined;
-
-  /** Video image */
-  poster?: Asset | undefined;
-
-  /** Autoplay */
-  autoplay?: boolean | undefined;
-
-  /** Loop */
-  loop?: boolean | undefined;
-
-  /** Display video controls */
-  controls?: boolean | undefined;
-
-  /** Description */
-  description?: string | undefined;
-
-  /** Display titles and descriptions */
-  displayTitles?: 'yes'[] | undefined;
-}
-
-/** A component that displays a video. Can have optional elements like strapline, heading, description. Optional viewport transition. */
-
-export interface IVideo extends Entry<IVideoFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'video';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
 export type CONTENT_TYPE =
   | 'article'
+  | 'faq'
   | 'footer'
-  | 'form'
   | 'header'
+  | 'hero'
   | 'image'
   | 'link'
   | 'list'
   | 'metaData'
+  | 'numberedList'
   | 'page'
-  | 'rich-text'
-  | 'video';
+  | 'rich-text';
 
 export type LOCALE_CODE = 'en-US';
 

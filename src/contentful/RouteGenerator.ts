@@ -119,6 +119,7 @@ class RouteGenerator {
         this.client.setLocale(lang);
         const footer = await this.client.fetchEntry({
           content_type: 'footer',
+          include: 3,
           field: 'slug',
           value: 'main-footer'
         });

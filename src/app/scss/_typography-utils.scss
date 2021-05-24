@@ -32,16 +32,15 @@ $type-style-map--default: (
                 h1: (
                         font-size: 64px,
                         line-height: normal,
-                        font-weight: normal,
+                        font-weight: 900,
+                        text-transform: uppercase,
                         margin-top: 0px,
-                        margin-bottom: 0.5em
                 ),
                 h2: (
                         margin-top: 0,
-                        font-size: 56px,
+                        font-size: 48px,
                         line-height: normal,
-                        font-weight: normal,
-                        margin-bottom: 2em
+                        font-weight: 900,
                 ),
                 h3: (
                         font-size: 44px,

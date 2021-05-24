@@ -2,7 +2,7 @@
     #{$heading} {
         // The function will set css properties for 'wide' as default
         margin-top: 0;
-        margin-bottom: 1em;
+        margin-bottom: 0;
         max-width: 100%;
         @include setTypeStylesAll('#{$heading}');
     }
@@ -45,4 +45,12 @@ hr {
 p hr {
     margin-top: var(--gap-layout);
     margin-bottom: var(--gap-layout);
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
 }
