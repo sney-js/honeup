@@ -7,9 +7,6 @@ export interface IArticleFields {
   /** Title */
   title: string;
 
-  /** Category */
-  category: ICategory;
-
   /** Description */
   description?: Document | undefined;
 
@@ -24,6 +21,9 @@ export interface IArticleFields {
 
   /** Keywords */
   keywords?: string[] | undefined;
+
+  /** Parent Page */
+  parentPage?: IPage | undefined;
 
   /** Slug */
   name: string;
@@ -41,33 +41,6 @@ export interface IArticle extends Entry<IArticleFields> {
     contentType: {
       sys: {
         id: 'article';
-        linkType: 'ContentType';
-        type: 'Link';
-      };
-    };
-  };
-}
-
-export interface ICategoryFields {
-  /** Title */
-  title: string;
-
-  /** Slug */
-  name: string;
-}
-
-/** Used to assign Articles categories. */
-
-export interface ICategory extends Entry<ICategoryFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: 'category';
         linkType: 'ContentType';
         type: 'Link';
       };
@@ -108,6 +81,31 @@ export interface IFooter extends Entry<IFooterFields> {
   };
 }
 
+export interface IFormFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Description */
+  description?: Document | undefined;
+}
+
+export interface IForm extends Entry<IFormFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: 'form';
+        linkType: 'ContentType';
+        type: 'Link';
+      };
+    };
+  };
+}
+
 export interface IHeaderFields {
   /** Content name */
   name: string;
@@ -118,8 +116,11 @@ export interface IHeaderFields {
   /** Links */
   links?: ILink[] | undefined;
 
+  /** CTA Link */
+  ctaLink?: ILink | undefined;
+
   /** Logo Link */
-  logoLink: IPage;
+  logoLink: ILink;
 
   /** Slug */
   slug: string;
@@ -214,9 +215,6 @@ export interface IListFields {
   /** Content items */
   consys?: (IArticle | IPage)[] | undefined;
 
-  /** Search query */
-  queryJSON?: Record<string, any> | undefined;
-
   /** Identifier */
   identifier: string;
 }
@@ -279,7 +277,7 @@ export interface IPageFields {
   title: string;
 
   /** Content */
-  content?: (IImage | IList | IRichText | IVideo)[] | undefined;
+  content?: (IForm | IImage | IList | IRichText | IVideo)[] | undefined;
 
   /** Parent page */
   parentPage?: IArticle | IPage | undefined;
@@ -388,10 +386,10 @@ export interface IVideo extends Entry<IVideoFields> {
   };
 }
 
-type CONTENT_TYPE =
+export type CONTENT_TYPE =
   | 'article'
-  | 'category'
   | 'footer'
+  | 'form'
   | 'header'
   | 'image'
   | 'link'
@@ -401,6 +399,6 @@ type CONTENT_TYPE =
   | 'rich-text'
   | 'video';
 
-type LOCALE_CODE = 'en-US' | 'fr';
+export type LOCALE_CODE = 'en-US';
 
-type CONTENTFUL_DEFAULT_LOCALE_CODE = 'en-US';
+export type CONTENTFUL_DEFAULT_LOCALE_CODE = 'en-US';

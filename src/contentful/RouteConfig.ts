@@ -4,8 +4,7 @@ import { RouteGeneratorConfig } from './RouteGenerator';
 const config: RouteGeneratorConfig = {
   pages: [
     { contentType: 'page', parentField: 'parentPage' },
-    { contentType: 'article', parentField: 'category' },
-    { contentType: 'category' }
+    { contentType: 'article', parentField: 'parentPage' }
   ],
   cleanupConfig: {
     handlers: {

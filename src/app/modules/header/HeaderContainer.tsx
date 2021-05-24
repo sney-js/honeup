@@ -19,7 +19,7 @@ const HeaderContainer = () => {
       currentLocale={locale}
       title={header.name}
       links={header.links as LinkData[]}
-      themeToggle={true}
+      ctaLink={header.ctaLink as LinkData}
       localeData={localeData.hasMultipleLocales && localeData}
       logo={<RespImage image={header.logo} widthMax={100} />}
       logoLink={header.logoLink as LinkData}
