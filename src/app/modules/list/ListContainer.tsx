@@ -26,45 +26,53 @@ export default function ListContainer(props: ListTypes) {
 
 export const CardList = ({ list, title }) => {
   return (
-    <Container animateIn pad='All' layout='maxWidth'>
-      <h2>{title}</h2>
-      <Grid
-        template='1fr 1fr 1fr'
-        templateTablet='1fr 1fr'
-        templateMobile='1fr'
-        align='stretch'
-      >
-        {list.map((page, index) => {
-          const type = getContentType(page);
-          switch (type) {
-            case 'article': {
-              const fields = page.fields as IArticleFields;
-              return (
-                <Card
-                  key={`article${index}`}
-                  title={fields.title}
-                  image={<RespImage image={fields.image} />}
-                  cardLink={{ path: resolve(page) }}
-                  description={<RichText document={fields.description} />}
-                />
-              );
-            }
-            case 'page': {
-              const fields = page.fields as IPageFields;
-              return (
-                <Card
-                  key={`page${index}`}
-                  title={fields.title}
-                  image={<RespImage image={fields.image} />}
-                  cardLink={{ path: resolve(page) }}
-                />
-              );
-            }
-            default:
-              return null;
-          }
-        })}
-      </Grid>
+    <Container animateIn>
+      <Container background='Secondary'>
+        <Container pad='All' layout='maxWidth'>
+          <h2>{title}</h2>
+        </Container>
+      </Container>
+      <Container background='Primary' theme='dark'>
+        <Container pad='All' layout='maxWidth'>
+          <Grid
+            template='repeat(auto-fill, minmax(400px, 1fr))'
+            templateTablet='1fr 1fr'
+            templateMobile='1fr'
+            align='stretch'
+          >
+            {list.map((page, index) => {
+              const type = getContentType(page);
+              switch (type) {
+                case 'article': {
+                  const fields = page.fields as IArticleFields;
+                  return (
+                    <Card
+                      key={`article${index}`}
+                      title={fields.title}
+                      image={<RespImage image={fields.image} />}
+                      cardLink={{ path: resolve(page) }}
+                      description={<RichText document={fields.description} />}
+                    />
+                  );
+                }
+                case 'page': {
+                  const fields = page.fields as IPageFields;
+                  return (
+                    <Card
+                      key={`page${index}`}
+                      title={fields.title}
+                      image={<RespImage image={fields.image} />}
+                      cardLink={{ path: resolve(page) }}
+                    />
+                  );
+                }
+                default:
+                  return null;
+              }
+            })}
+          </Grid>
+        </Container>
+      </Container>
     </Container>
   );
 };

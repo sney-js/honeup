@@ -53,13 +53,13 @@ body {
   --transition: 0.5s ease-out;
   --border-style: solid;
   --border-width-small: 2px;
-  --border-radius-small: 2px;
-  --border-radius-medium: 4px;
-  --border-radius-image: 8px;
+  --border-radius-small: 0px;
+  --border-radius-medium: 0px;
+  --border-radius-image: 0px;
   --border-radius-button: 24px;
   --val-max-width: 1200px;
   --val-max-width-narrow: 768px;
-  --button-height: 42px;
+  --button-height: 48px;
   --button-border-width: 2px;
 
   --nav-height: 90px;
@@ -69,6 +69,8 @@ body {
   --spacing-gap-xs: calc(var(--spacing-gap) / 2);
   --spacing-gap-ms: calc(var(--spacing-gap) * 1.5);
   --spacing-gap-m: calc(var(--spacing-gap) * 2);
+
+  --spacing-gap-xlarge: calc(var(--spacing-gap) * 8);
   --spacing-gap-large: calc(var(--spacing-gap) * 4);
   --spacing-gap-mobile: var(--spacing-gap);
   --spacing-gap-tablet: var(--spacing-gap-m);
@@ -78,16 +80,19 @@ body {
 
   --gradient-primary: none;
   --box-shaddow-small: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
-  --box-shaddow-medium: 0 2px 16px 0 rgba(0, 0, 0, 0.15);
+  --box-shaddow-medium: none;
   --box-shaddow-large: 0 2px 42px 0 rgba(0, 0, 0, 0.15);
 
   //--------------BREAKPOINTS DYNAMIC----------------
   --gap-layout: var(--spacing-gap-large);
+  --gap-layout-y: var(--spacing-gap-large);
   @media #{$screen-tablet} {
     --gap-layout: var(--spacing-gap-tablet);
+    --gap-layout-y: var(--spacing-gap-tablet);
   }
   @media #{$screen-mobile} {
     --gap-layout: var(--spacing-gap-mobile);
+    --gap-layout-y: var(--spacing-gap-m);
   }
   --spacing-margin-outer: calc(
           (100vw - var(--val-max-width)) / 2 + var(--gap-layout)

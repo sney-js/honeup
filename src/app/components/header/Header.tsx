@@ -90,7 +90,11 @@ export const Header = (props: HeaderProps) => {
           !!menuOpen && styles.modalWrapperOpen
         ])}
       >
-        <MobileModal links={props.links} languageToggle={languageSelector} />
+        <MobileModal
+          links={props.links}
+          languageToggle={languageSelector}
+          ctaLink={props.ctaLink}
+        />
       </Container>
 
       <Container layout='maxWidth' pad='Horizontal'>
@@ -152,15 +156,20 @@ const BurgerMenu = ({ isMenuOpen, setMenuOpen }) => {
   );
 };
 
-const MobileModal = ({ links, languageToggle }) => {
-  const className = makeClass([styles.mobileRoot]);
+const MobileModal = ({ links, languageToggle, ctaLink }) => {
+  const className = makeClass([]);
   return (
     <nav className={className}>
       <Container
         pad='All'
-        className={makeClass([styles.mobileRoot, styles.navigation])}
+        className={makeClass([
+          'text-align-left',
+          styles.mobileRoot,
+          styles.navigation
+        ])}
       >
         {languageToggle && React.cloneElement(languageToggle)}
+        {ctaLink && <LinkElement {...ctaLink} appearance='primary' />}
         <br />
         {links && links.map((l, i) => <LinkWrap key={`link${i}`} {...l} />)}
       </Container>

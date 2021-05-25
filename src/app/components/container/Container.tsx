@@ -29,7 +29,7 @@ export type ContainerProps = {
    * Sets a `background-$background` classname on this container
    * e.g. `.background-primary`
    */
-  background?: string;
+  background?: 'Primary' | 'Secondary' | string;
   /**
    * Whether this container should animate with fadein affect when in view
    */

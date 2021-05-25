@@ -1,2 +1,5 @@
-svg {
+#root{
+  .d-card {
+    --color-card-bg: var(--color-primary-lighter);
+  }
 }

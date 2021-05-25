@@ -3,8 +3,11 @@ import Container from '../container';
 import LinkWrap from '../../modules/link/linkWrap';
 import { LinkData } from '../../models/LinkData';
 import Grid from '../Grid';
-
-const styles = require('./footer.module.scss');
+import './footer.scss';
+import Button from '../../elements/Button';
+import IcFacebook from '../../elements/SvgElements/IcFacebook';
+import IcInstagram from '../../elements/SvgElements/IcInstagram';
+import IcTwitter from '../../elements/SvgElements/IcTwitter';
 
 export type FooterProps = {
   links?: Array<LinkData>;
@@ -12,14 +15,14 @@ export type FooterProps = {
 };
 
 const Footer = ({ content, links }: FooterProps) => (
-  <footer className={styles.footer}>
+  <footer className='d-footer'>
     <Container
       layout='maxWidth'
       pad='All'
       theme='dark'
       className='text-align-left'
     >
-      <div className={styles.links}>
+      <div className='links'>
         <Grid template='1fr 1fr 1fr' templateMobile='1fr'>
           {links?.map((l, i) => (
             <LinkWrap key={`footer${i}`} {...l} />
@@ -27,7 +30,25 @@ const Footer = ({ content, links }: FooterProps) => (
         </Grid>
       </div>
       <br />
-      <small>{content}</small>
+      <br />
+      <Grid template='1fr 1fr' templateMobile='1fr'>
+        <span>{content}</span>
+        <Grid
+          className='text-align-right'
+          template='48px 48px 48px'
+          style={{ justifyContent: 'end' }}
+        >
+          <LinkWrap path='https://facebook.com' isExternal newTab>
+            <Button icon={<IcFacebook />} asDiv />
+          </LinkWrap>
+          <LinkWrap path='https://instagram.com' isExternal newTab>
+            <Button icon={<IcInstagram />} asDiv />
+          </LinkWrap>
+          <LinkWrap path='https://twitter.com' isExternal newTab>
+            <Button icon={<IcTwitter />} asDiv />
+          </LinkWrap>
+        </Grid>
+      </Grid>
     </Container>
   </footer>
 );

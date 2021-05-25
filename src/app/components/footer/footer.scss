@@ -1,12 +1,12 @@
 @import "../../scss/helpers";
 
-.footer {
+.d-footer {
     position: relative;
     background-color: var(--color-primary);
 
     .links {
         a {
-            @include setTypeStylesAll("caption");
+            @include setTypeStylesAll("link");
             font-weight: bold;
             text-align: left;
         }

@@ -13,6 +13,8 @@
 }
 
 .d-card {
+  --color-card-bg: none;
+
   position: relative;
   outline: none;
   border-radius: var(--border-radius-medium);
@@ -21,6 +23,7 @@
   flex-direction: column;
   justify-content: flex-end;
   box-shadow: var(--box-shaddow-medium);
+  background: var(--color-card-bg);
 
   &__image {
     line-height: 0;

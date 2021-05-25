@@ -13,6 +13,7 @@ import {
 import LinkElement from '../../elements/link/LinkElement';
 import Grid from '../../components/Grid';
 import Accordion, { AccordionPanel } from '../../components/Accordion';
+import { Image } from '../ImageText/ImageText';
 
 // Add all new contentful modules here.
 export const renderContentContainer = ({ item, key, ...rest }) => {
@@ -26,22 +27,7 @@ export const renderContentContainer = ({ item, key, ...rest }) => {
       );
     case 'image': {
       const imageFields = item.fields as IImageFields;
-      return (
-        <Container key={key} animateIn>
-          <Container background='Primary'>
-            <Container layout='maxWidth'>
-              <RespImage image={imageFields.image} />
-            </Container>
-          </Container>
-          {imageFields.textBlock && (
-            <Container pad='All' background='Secondary'>
-              <Container layout='maxWidthNarrow'>
-                <RichText document={imageFields.textBlock} />
-              </Container>
-            </Container>
-          )}
-        </Container>
-      );
+      return <Image key={key} fields={imageFields} />;
     }
     case 'hero': {
       const heroFields = item.fields as IHeroFields;
@@ -53,7 +39,7 @@ export const renderContentContainer = ({ item, key, ...rest }) => {
           background='Primary'
           theme='dark'
         >
-          <Container layout='maxWidthNarrow'>
+          <Container layout='maxWidthNarrow' pad='Vertical'>
             <Grid template='1fr' gap='var(--spacing-gap-m)'>
               <RespImage image={heroFields.image} />
               {heroFields.title && <h1>{heroFields.title}</h1>}

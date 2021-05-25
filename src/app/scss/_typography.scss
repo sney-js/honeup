@@ -1,56 +1,61 @@
 @each $heading in (h1, h2, h3, h4, h5, h6, body, label, small) {
-    #{$heading} {
-        // The function will set css properties for 'wide' as default
-        margin-top: 0;
-        margin-bottom: 0;
-        max-width: 100%;
-        @include setTypeStylesAll('#{$heading}');
-    }
+  #{$heading} {
+    // The function will set css properties for 'wide' as default
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+    @include setTypeStylesAll('#{$heading}');
+  }
 }
 
 .tiny {
-    @include setTypeStylesAll('tiny');
-    opacity: 0.5;
+  @include setTypeStylesAll('tiny');
+  opacity: 0.5;
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
-    color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
 
-    &:visited {
-        color: inherit;
-    }
+  &:visited {
+    color: inherit;
+  }
 }
 
 strong,
 b {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .italic {
-    font-style: italic;
+  font-style: italic;
 }
+
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 hr {
-    height: 1px;
-    width: 100%;
-    border: 0;
-    background-color: var(--color-highlight-1);
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background-color: var(--color-highlight-1);
 }
 
 p hr {
-    margin-top: var(--gap-layout);
-    margin-bottom: var(--gap-layout);
+  margin-top: var(--gap-layout);
+  margin-bottom: var(--gap-layout);
 }
 
-.text-align-center{
-    text-align: center;
+.text-align-center {
+  text-align: center;
 }
 
 .text-align-left {
-    text-align: left;
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
 }

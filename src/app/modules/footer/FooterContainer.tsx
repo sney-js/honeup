@@ -3,6 +3,7 @@ import Footer from '../../components/footer/Footer';
 import { GlobalContext } from '../../components/layout/Layout';
 import { getSiteDataForLocale } from '../utils/ReactStaticHelpers';
 import { LinkData } from '../../models/LinkData';
+import './footer-module.scss';
 
 const FooterContainer = (props) => {
   const { locale } = useContext(GlobalContext);

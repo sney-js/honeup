@@ -24,6 +24,9 @@
   &__title {
     display: block;
     margin-top: 0;
+    [data-theme='dark'] & {
+      color: var(--color-secondary);
+    }
   }
 
   &__header_Secondary &__title {
