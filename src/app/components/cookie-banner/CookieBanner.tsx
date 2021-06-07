@@ -9,7 +9,7 @@ import { WINDOW } from '../../utils/helpers';
 const styles = require('./cookie-banner.module.scss');
 
 export type CookieBannerProps = {
-  caption?: string;
+  caption?: any;
   content?: any;
   setAnalyticsCookie?: boolean;
   setTrackingCookie?: boolean;
@@ -50,6 +50,7 @@ class CookieBanner extends Component<CookieBannerProps> {
       <Container
         className={styles.cookieBanner}
         layout='maxWidth'
+        background='Secondary'
         pad='Horizontal'
       >
         <div className={styles.container}>

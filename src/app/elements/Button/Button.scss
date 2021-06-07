@@ -10,8 +10,8 @@ $button-hover: '&:not(.icon-secondary):not(.disabled):hover';
   --button-primary-color-border: var(--color-primary);
 
   --button-primary-color-text-hover: var(--color-light);
-  --button-primary-color-bg-hover: var(--color-primary-darker);
-  --button-primary-color-border-hover: var(--color-primary);
+  --button-primary-color-bg-hover: var(--color-primary-lighter);
+  --button-primary-color-border-hover: var(--color-primary-lighter);
 
   --button-primary-color-text-disabled: var(--color-highlight-2);
   --button-primary-color-bg-disabled: rgba(0, 0, 0, 0.1);
@@ -23,9 +23,9 @@ $button-hover: '&:not(.icon-secondary):not(.disabled):hover';
   --button-secondary-color-bg: transparent;
   --button-secondary-color-border: var(--color-primary);
 
-  --button-secondary-color-text-hover: var(--color-primary-darker);
+  --button-secondary-color-text-hover: var(--color-primary-lighter);
   --button-secondary-color-bg-hover: var(--color-highlight-1);
-  --button-secondary-color-border-hover: var(--color-primary-darker);
+  --button-secondary-color-border-hover: var(--color-primary-lighter);
 
   --button-secondary-color-text-disabled: var(--color-highlight-2);
   --button-secondary-color-bg-disabled: transparent;
@@ -75,6 +75,11 @@ $button-hover: '&:not(.icon-secondary):not(.disabled):hover';
 }
 
 %button-appearances {
+
+  #{$button-hover} {
+    transform: translateX(4px);
+  }
+
   &.primary {
     --button-text: var(--button-primary-color-text);
     --button-background: var(--button-primary-color-bg);

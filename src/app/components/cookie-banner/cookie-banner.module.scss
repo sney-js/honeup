@@ -3,7 +3,7 @@
 .cookie-banner {
     bottom: 0px;
     align-items: baseline;
-    background: var(--color-bg);
+    border-radius: 0 var(--spacing-gap-m) 0 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -22,8 +22,10 @@
     }
 
     .container {
-        width: 350px;
+        max-width: 450px;
+        column-gap: var(--spacing-gap);
         display: flex;
+        flex-wrap: wrap;
         padding: $default-gap 0;
         align-items: center;
         justify-content: space-between;

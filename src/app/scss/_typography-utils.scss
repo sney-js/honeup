@@ -26,19 +26,18 @@
 $type-style-map--default: (
         desktop: (
                 body: (
-                        font-size: 16px,
+                        font-size: 18px,
                         line-height: 1.5
                 ),
                 h1: (
-                        font-size: 64px,
+                        font-size: 92px,
                         line-height: normal,
                         font-weight: 900,
-                        text-transform: uppercase,
                         margin-top: 0px,
                 ),
                 h2: (
                         margin-top: 0,
-                        font-size: 48px,
+                        font-size: 64px,
                         line-height: normal,
                         font-weight: 900,
                 ),
@@ -47,7 +46,7 @@ $type-style-map--default: (
                         line-height: normal
                 ),
                 h4: (
-                        font-size: 22px,
+                        font-size: 26px,
                         line-height: normal
                 ),
                 h5: (
@@ -74,7 +73,7 @@ $type-style-map--default: (
                         line-height: 1.5
                 ),
                 button: (
-                        font-size: 16px,
+                        font-size: 18px,
                         line-height: 19px,
                         font-weight: 600
                 ),

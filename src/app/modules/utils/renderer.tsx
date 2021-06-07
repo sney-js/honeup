@@ -21,8 +21,13 @@ export const renderContentContainer = ({ item, key, ...rest }) => {
   switch (item.type as CONTENT_TYPE) {
     case 'rich-text':
       return (
-        <Container key={key} pad='All' layout='maxWidthNarrow' animateIn>
-          <RichText document={item.fields.content} />
+        <Container key={key} pad='All' layout='maxWidth' animateIn>
+          <Container
+            layout='maxWidthNarrow'
+            className='text-align-left margin-left-0'
+          >
+            <RichText document={item.fields.content} />
+          </Container>
         </Container>
       );
     case 'image': {
@@ -57,22 +62,25 @@ export const renderContentContainer = ({ item, key, ...rest }) => {
       return (
         <Container
           key={key}
-          layout='maxWidth'
-          animateIn
           pad='All'
+          theme='light'
+          background='white'
           className='text-align-left'
+          animateIn
         >
-          <Container layout='columns'>
-            <h1>{faqFields.title}</h1>
-            <div>
-              <Accordion allowMultiple>
-                {faqFields.textItems.map((rt, i) => (
-                  <AccordionPanel title={rt.fields.title} key={i}>
-                    <RichText document={rt.fields.content} />
-                  </AccordionPanel>
-                ))}
-              </Accordion>
-            </div>
+          <Container layout='maxWidth'>
+            <Container layout='columns'>
+              <h1>{faqFields.title}</h1>
+              <div>
+                <Accordion allowMultiple>
+                  {faqFields.textItems.map((rt, i) => (
+                    <AccordionPanel title={rt.fields.title} key={i}>
+                      <RichText document={rt.fields.content} />
+                    </AccordionPanel>
+                  ))}
+                </Accordion>
+              </div>
+            </Container>
           </Container>
         </Container>
       );
@@ -80,10 +88,10 @@ export const renderContentContainer = ({ item, key, ...rest }) => {
     case 'numberedList': {
       const numLFields = item.fields as INumberedListFields;
       return (
-        <Container key={key} animateIn>
+        <Container key={key} background='white' animateIn theme='light'>
           <Container background='Secondary' pad='All'>
             <Container layout='maxWidthNarrow'>
-              <h1>{numLFields.title}</h1>
+              <h2 className='color-text-primary'>{numLFields.title}</h2>
             </Container>
           </Container>
           <Container layout='maxWidth' pad='All'>

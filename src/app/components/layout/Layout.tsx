@@ -91,7 +91,10 @@ function Layout(props: LayoutProps) {
 
         <HeaderContainer />
 
-        <div className={makeClass([styles.content])}>
+        <div
+          className={makeClass([styles.content])}
+          data-theme='dark'
+        >
           <main>{props.children}</main>
         </div>
 

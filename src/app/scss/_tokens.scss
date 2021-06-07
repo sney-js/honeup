@@ -1,3 +1,5 @@
+.data-theme-light,
+[data-theme='light'],
 body {
   // --------------CONSTANTS---------------
   // Please DO NOT change values of variables defined here on different themes
@@ -19,21 +21,24 @@ body {
   --color-primary-darker: #0a0e24;
   --color-primary-lighter: #1e264f;
 
+  --color-secondary-darker: #d0ad28;
+  --color-secondary-lighter: #ffe77a;
+
   //---------------DEFAULT VALUES------------
   // The values of colors defined here will change depending on themes.
   // These are CONSTANTS.
 
   --color-sp-Theme-Dynamic: none;
 
-  --color-primary-dynamic: var(--color-primary);
+  --color-primary-dynamic: var(--color-dark);
   --color-secondary-dynamic: var(--color-secondary);
   //--------------
   --color-sp-Site: none;
 
   --color-body: var(--color-dark);
-  --color-bg: var(--color-light);
+  --color-bg: var(--color-primary);
   --color-error: #d20000;
-  --color-heading: #0d0847;
+  --color-heading: var(--color-primary-dynamic);
 
   //--------------
   --color-sp-Highlights: none;
@@ -103,11 +108,11 @@ body {
 .data-theme-dark,
 [data-theme='dark'] {
   --color-body: var(--color-light);
-  --color-bg: var(--color-dark);
+  --color-bg: var(--color-primary);
   --color-error: #ff7979;
   --color-primary-dynamic: var(--color-secondary);
   --color-secondary-dynamic: var(--color-primary);
-  --color-heading: #e5e5e5;
+  --color-heading: var(--color-light);
 
   --color-highlight-1: rgba(255, 255, 255, 0.2);
   --color-highlight-2: rgba(255, 255, 255, 0.3);

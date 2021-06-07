@@ -13,6 +13,10 @@
   opacity: 0.5;
 }
 
+p {
+  @include setTypeStylesAll('body');
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
@@ -58,4 +62,16 @@ p hr {
 
 .text-align-right {
   text-align: right;
+}
+
+.margin-left-0 {
+  margin-left: 0;
+}
+
+.color-text-primary {
+  color: var(--color-primary-dynamic);
+}
+
+.text-lh-0 {
+  line-height: 0;
 }
