@@ -1,0 +1,18 @@
+@import "../../scss/helpers";
+
+.d-numbered-list {
+  .number {
+    width: 1.4em;
+    height: 1.4em;
+    padding: 0 var(--spacing-gap);
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    border-radius: 50px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}

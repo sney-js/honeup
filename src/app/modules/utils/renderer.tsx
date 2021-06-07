@@ -7,13 +7,13 @@ import {
   CONTENT_TYPE,
   IFaqFields,
   IHeroFields,
-  IImageFields,
-  INumberedListFields
+  IImageFields
 } from '../../../contentful/@types/contentful';
 import LinkElement from '../../elements/link/LinkElement';
 import Grid from '../../components/Grid';
 import Accordion, { AccordionPanel } from '../../components/Accordion';
 import { Image } from '../ImageText/ImageText';
+import { NumberedList } from '../NumberedList/numberedList';
 
 // Add all new contentful modules here.
 export const renderContentContainer = ({ item, key, ...rest }) => {
@@ -86,31 +86,7 @@ export const renderContentContainer = ({ item, key, ...rest }) => {
       );
     }
     case 'numberedList': {
-      const numLFields = item.fields as INumberedListFields;
-      return (
-        <Container key={key} background='white' animateIn theme='light'>
-          <Container background='Secondary' pad='All'>
-            <Container layout='maxWidthNarrow'>
-              <h2 className='color-text-primary'>{numLFields.title}</h2>
-            </Container>
-          </Container>
-          <Container layout='maxWidth' pad='All'>
-            <Grid
-              template='repeat(auto-fill, 350px)'
-              style={{ justifyContent: 'center' }}
-              gap='var(--spacing-gap)'
-            >
-              {numLFields.entriesText?.map((rt, i) => (
-                <div key={i}>
-                  <h2>{i + 1}</h2>
-                  <br />
-                  <RichText document={rt.fields.content} />
-                </div>
-              ))}
-            </Grid>
-          </Container>
-        </Container>
-      );
+      return <NumberedList key={key} item={item.fields} />;
     }
     case 'list':
       return <ListContainer key={key} item={item.fields} />;
