@@ -9,6 +9,7 @@ const client = new ContentfulApi({
   environment: process.env.CONTENTFUL_ENV
 });
 
+
 export default {
   entry: path.resolve('./src/app/index.tsx'),
   getSiteData: async () => {

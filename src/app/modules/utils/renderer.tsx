@@ -96,8 +96,8 @@ export const renderContentContainer = ({ item, key, ...rest }) => {
           </Container>
           <Container layout='maxWidth' pad='All'>
             <Grid
-              template='1fr 1fr 1fr'
-              templateTablet='1fr'
+              template='repeat(auto-fill, 350px)'
+              style={{ justifyContent: 'center' }}
               gap='var(--spacing-gap)'
             >
               {numLFields.entriesText?.map((rt, i) => (

@@ -87,45 +87,15 @@ $type-style-map--default: (
         ),
         tablet: (
                 h1: (
-                        font-size: 48px
+                        font-size: 64px
                 ),
                 h2: (
-                        font-size: 44px
+                        font-size: 32px
                 ),
-                h3: (
-                        font-size: 44px
-                ),
-                h4: (
-                        font-size: 18px
-                ),
-                h5: (
-                        font-size: 14px
-                ),
-                h6: (
-                        font-size: 11px
-                )
         ),
         mobile: (
                 body: (
                         font-size: 18px
-                ),
-                h1: (
-                        font-size: 42px
-                ),
-                h2: (
-                        font-size: 32px
-                ),
-                h3: (
-                        font-size: 32px
-                ),
-                h4: (
-                        font-size: 18px
-                ),
-                h5: (
-                        font-size: 14px
-                ),
-                h6: (
-                        font-size: 11px
                 )
         )
 );
