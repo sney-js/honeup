@@ -88,6 +88,9 @@ export interface IFooterFields {
 
   /** Slug */
   slug: string;
+
+  /** Social Media Links */
+  socialMediaLinks?: Record<string, any> | undefined;
 }
 
 /** A grouping of content which sits at the bottom of a page. */

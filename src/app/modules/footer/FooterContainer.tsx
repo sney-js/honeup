@@ -10,7 +10,11 @@ const FooterContainer = (props) => {
   const footer = getSiteDataForLocale(locale).footer;
   if (!footer) return null;
   return (
-    <Footer links={footer.links as LinkData[]} content={footer.copyright} />
+    <Footer
+      links={footer.links as LinkData[]}
+      content={footer.copyright}
+      social={footer.socialMediaLinks}
+    />
   );
 };
 export default FooterContainer;

@@ -8,13 +8,26 @@ import Button from '../../elements/Button';
 import IcFacebook from '../../elements/SvgElements/IcFacebook';
 import IcInstagram from '../../elements/SvgElements/IcInstagram';
 import IcTwitter from '../../elements/SvgElements/IcTwitter';
+import { ReactElement } from 'react-markdown';
+import IcYoutube from '../../elements/SvgElements/IcYoutube';
 
+type SupportedSocials = 'facebook' | 'instagram' | 'twitter' | 'youtube';
 export type FooterProps = {
   links?: Array<LinkData>;
   content?: React.ReactText;
+  social: {
+    [key in SupportedSocials]?: string | null;
+  };
 };
 
-const Footer = ({ content, links }: FooterProps) => (
+const socialIcons: { [key in SupportedSocials]: ReactElement } = {
+  facebook: <IcFacebook />,
+  instagram: <IcInstagram />,
+  twitter: <IcTwitter />,
+  youtube: <IcYoutube />
+};
+
+const Footer = ({ content, links, social }: FooterProps) => (
   <footer className='d-footer'>
     <Container
       layout='maxWidth'
@@ -35,18 +48,18 @@ const Footer = ({ content, links }: FooterProps) => (
         <span>{content}</span>
         <Grid
           className='text-align-right'
-          template='48px 48px 48px'
+          template='repeat(auto-fit, 48px)'
           style={{ justifyContent: 'end' }}
         >
-          <LinkWrap path='https://facebook.com' isExternal newTab>
-            <Button icon={<IcFacebook />} asDiv />
-          </LinkWrap>
-          <LinkWrap path='https://instagram.com' isExternal newTab>
-            <Button icon={<IcInstagram />} asDiv />
-          </LinkWrap>
-          <LinkWrap path='https://twitter.com' isExternal newTab>
-            <Button icon={<IcTwitter />} asDiv />
-          </LinkWrap>
+          {social &&
+            Object.keys(social).map((sc) => {
+              if (!social[sc]) return null;
+              return (
+                <LinkWrap key={sc} path={social[sc]} isExternal newTab>
+                  <Button icon={socialIcons[sc]} appearance='invisible' />
+                </LinkWrap>
+              );
+            })}
         </Grid>
       </Grid>
     </Container>
