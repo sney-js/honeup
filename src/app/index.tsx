@@ -5,10 +5,11 @@ import './index.scss';
 // Your top level component
 import App from './App';
 import ReactGA from 'react-ga';
+import { HAS_WINDOW, WINDOW } from './utils/helpers';
 
-if (window) {
+if (HAS_WINDOW) {
   ReactGA.initialize('G-7WSLTP31YD');
-  // ReactGA.pageview(window.location.pathname + window.location.search);
+  ReactGA.pageview(WINDOW.location.pathname + window.location.search);
 }
 
 // Render your app
