@@ -8,6 +8,7 @@ import LanguageSelect, { getLang } from './LanguageSelector';
 import { LinkData } from '../../models/LinkData';
 import { cleanPath } from '../../utils/Resolver';
 import LinkElement from '../../elements/link/LinkElement';
+import Button from '../../elements/Button';
 
 const styles = require('./header.module.scss');
 
@@ -126,11 +127,22 @@ export const Header = (props: HeaderProps) => {
               )}
               {languageSelector}
               {props.ctaLink && (
-                <LinkElement {...props.ctaLink} appearance='primary' />
+                <LinkElement {...props.ctaLink} appearance='secondary' />
               )}
             </Container>
             <div className={styles.actionsMobile}>
-              <BurgerMenu isMenuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+              {props.links ? (
+                <BurgerMenu isMenuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+              ) : (
+                props.ctaLink && (
+                  <LinkWrap {...props.ctaLink}>
+                    <Button
+                      appearance='secondary'
+                      title={props.ctaLink.title}
+                    />
+                  </LinkWrap>
+                )
+              )}
             </div>
           </div>
         </div>

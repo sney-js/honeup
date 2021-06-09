@@ -73,9 +73,10 @@ $type-style-map--default: (
                         line-height: 1.5
                 ),
                 button: (
-                        font-size: 18px,
+                        font-size: 16px,
                         line-height: 19px,
-                        font-weight: 600
+                        font-weight: 600,
+                        text-transform: none
                 ),
                 link: (
                         font-size: 13px,
