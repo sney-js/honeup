@@ -12,7 +12,6 @@ const HeaderContainer = () => {
   const header = getSiteDataForLocale(locale).header;
 
   if (!header) return null;
-  console.log(header);
   return (
     <Header
       key={`Header-${locale}`}
