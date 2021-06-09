@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Head, useSiteData } from 'react-static';
 import { getUrl } from '../../utils/RespImage';
-import { makeClass, HAS_WINDOW, WINDOW } from '../../utils/helpers';
+import { HAS_WINDOW, makeClass, WINDOW } from '../../utils/helpers';
 import GlobalLoader from '../global-loader/GlobalLoader';
 import HeaderContainer from '../../modules/header/HeaderContainer';
 import FooterContainer from '../../modules/footer/FooterContainer';
 import { IMetaDataFields } from '../../../contentful/@types/contentful';
 import CookieBannerContainer from '../../modules/cookie-banner/CookieBannerContainer';
+import ReactGA from 'react-ga';
 
 const styles = require('./layout.module.scss');
 
@@ -60,6 +61,13 @@ function Layout(props: LayoutProps) {
     WINDOW.theme = bodyElement && bodyElement.theme ? props.theme : 'light';
   }, [props.theme]);
 
+  useEffect(() => {
+    if (!HAS_WINDOW) return;
+    const currPath = window.location.pathname + window.location.search;
+    ReactGA.pageview(currPath);
+    console.log(currPath);
+  }, [WINDOW?.location?.pathname]);
+
   const [locale, setLocale] = useState(props.locale || localeData?.default);
 
   const globalState = {
@@ -91,10 +99,7 @@ function Layout(props: LayoutProps) {
 
         <HeaderContainer />
 
-        <div
-          className={makeClass([styles.content])}
-          data-theme='dark'
-        >
+        <div className={makeClass([styles.content])} data-theme='dark'>
           <main>{props.children}</main>
         </div>
 

@@ -4,6 +4,12 @@ import { AppContainer } from 'react-hot-loader';
 import './index.scss';
 // Your top level component
 import App from './App';
+import ReactGA from 'react-ga';
+
+if (window) {
+  ReactGA.initialize('G-7WSLTP31YD');
+  // ReactGA.pageview(window.location.pathname + window.location.search);
+}
 
 // Render your app
 if (typeof document !== 'undefined') {
