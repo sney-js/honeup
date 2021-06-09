@@ -11,13 +11,6 @@ import ReactGA from 'react-ga';
 
 const styles = require('./layout.module.scss');
 
-type MetaDataStructure = {
-  title: string;
-  description?: string;
-  keywords?: string;
-  image?: string;
-};
-
 type LayoutProps = {
   locale?: string;
   globalLoader?: boolean;
@@ -63,9 +56,9 @@ function Layout(props: LayoutProps) {
 
   useEffect(() => {
     if (!HAS_WINDOW) return;
+    window.scrollTo({ top: 0 });
     const currPath = window.location.pathname + window.location.search;
     ReactGA.pageview(currPath);
-    console.log(currPath);
   }, [WINDOW?.location?.pathname]);
 
   const [locale, setLocale] = useState(props.locale || localeData?.default);

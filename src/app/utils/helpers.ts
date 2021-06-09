@@ -92,3 +92,55 @@ export const setCSSVar = (obj: CSSVarType): CSSVarTypeReturn => {
   }
   return obj as CSSVarTypeReturn;
 };
+
+export const replaceAll = (
+  str: string,
+  search: string,
+  replace: string
+): string => {
+  return str.replace(new RegExp(search, 'g'), replace);
+};
+
+export const isEmpty = (object: object) => Object.keys(object).length === 0;
+
+export const DEBUG =
+  process.env.NODE_ENV === 'development' ||
+  process.env.CLIENT_ENV === 'development';
+
+export const addScriptToHead = (
+  id: string,
+  src?: string,
+  innerHTML?: string,
+  async?: boolean
+) => {
+  if (!WINDOW) return;
+  if (scriptExists(id)) return;
+
+  const head = WINDOW.document.querySelector('head');
+  const script = WINDOW.document.createElement('script');
+  script.setAttribute('id', id);
+  if (async) {
+    script.setAttribute('async', '');
+  }
+  script.setAttribute('type', 'text/javascript');
+  if (src) {
+    script.setAttribute('src', src);
+  }
+  if (innerHTML) {
+    script.innerHTML = innerHTML;
+  }
+  head.appendChild(script);
+};
+
+export const onScriptLoad = (id: string) => {
+  return new Promise((resolve, reject) => {
+    const elementById = WINDOW.document.getElementById(id);
+    if (!elementById) return reject(Error('not-loaded'));
+    elementById.addEventListener('load', () => {
+      return resolve(true);
+    });
+  });
+};
+
+const scriptExists = (id: string) =>
+  WINDOW.document.querySelectorAll(`script[id="${id}"]`).length > 0;
