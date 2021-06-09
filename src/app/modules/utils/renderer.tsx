@@ -17,7 +17,6 @@ import { NumberedList } from '../NumberedList/numberedList';
 
 // Add all new contentful modules here.
 export const renderContentContainer = ({ item, key, ...rest }) => {
-  console.log(item.type, 'item.type');
   switch (item.type as CONTENT_TYPE) {
     case 'rich-text':
       return (

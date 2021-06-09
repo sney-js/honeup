@@ -62,6 +62,7 @@ const AccordionPanel: FC<AccordionPanelProps> = (
         <Button
           disabled={disabled}
           type='button'
+          asDiv
           appearance='invisible'
           className='d-accordion-panel__label'
           role='tab'

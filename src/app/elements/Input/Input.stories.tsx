@@ -97,7 +97,6 @@ export const Custom = (): React.ReactChild => {
   return (
     <Form
       onSubmit={(data: any) => {
-        console.log(data);
         action('form-submit');
         return Promise.resolve();
       }}
@@ -196,7 +195,6 @@ export const Custom = (): React.ReactChild => {
                 description='Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.'
                 invalidError='Range too low'
                 setValidity={(val) => {
-                  console.log(val);
                   return ((val as number) | 0) > 50;
                 }}
                 label='range'

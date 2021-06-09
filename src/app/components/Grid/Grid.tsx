@@ -50,7 +50,7 @@ const Grid: FC<GridProps> = (props: GridProps) => {
     '--grid-align': align
   });
 
-  const modifiedStyles = Object.assign(props.style || {}, styleVars);
+  const modifiedStyles = Object.assign({}, props.style || {}, styleVars);
 
   return (
     <div {...rest} className={classNames} style={modifiedStyles}>
